@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyhxomtxt7y7e"]
+
+[ext_resource type="Script" path="res://scripts/dead.gd" id="1_e5k68"]
+
+[sub_resource type="Animation" id="Animation_18uxs"]
+resource_name = "RESET"
+
+[sub_resource type="Animation" id="Animation_3ya3g"]
+resource_name = "dead"
+length = 4.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ls6xl"]
+_data = {
+"RESET": SubResource("Animation_18uxs"),
+"dead": SubResource("Animation_3ya3g")
+}
+
+[node name="Dead" type="Node2D"]
+script = ExtResource("1_e5k68")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ls6xl")
+}
