@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://sc06ahd55qd6"]
+
+[ext_resource type="PackedScene" uid="uid://b883o0fiiq32b" path="res://finger.tscn" id="1_gplis"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Finger1" parent="." instance=ExtResource("1_gplis")]
+position = Vector2(0, 650)
+retreat_speed = 100.0
+retreat_time = 0.1
+
+[node name="ColorRect" parent="Finger1" index="0"]
+color = Color(1, 0, 0, 1)
+
+[node name="Finger2" parent="." instance=ExtResource("1_gplis")]
+position = Vector2(60, 3)
+move_speeds = Array[float]([-10.0])
+retreat_speed = -100.0
+retreat_time = 0.1
+
+[node name="ColorRect" parent="Finger2" index="0"]
+color = Color(0, 1, 0, 1)
+
+[node name="Finger3" parent="." instance=ExtResource("1_gplis")]
+position = Vector2(120, 650)
+move_speeds = Array[float]([20.0])
+retreat_speed = 100.0
+retreat_time = 0.1
+
+[node name="ColorRect" parent="Finger3" index="0"]
+color = Color(0, 0, 1, 1)
+
+[node name="Finger4" parent="." instance=ExtResource("1_gplis")]
+position = Vector2(180, 650)
+move_speeds = Array[float]([50.0, 10.0])
+move_speeds_times = Array[float]([2.0, 1.0])
+retreat_speed = 150.0
+
+[node name="ColorRect" parent="Finger4" index="0"]
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 250.0
+offset_right = 400.0
+offset_bottom = 290.0
+color = Color(1, 1, 1, 0.501961)
+
+[editable path="Finger1"]
+[editable path="Finger2"]
+[editable path="Finger3"]
+[editable path="Finger4"]
