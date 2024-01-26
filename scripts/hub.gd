@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _next() -> void:
 	difficulty += 1
-	var minigame : Minigame = preload("res://minigames/umbrella.tscn").instantiate()
+	var minigame : Minigame = preload("res://minigames/drive.tscn").instantiate()
 	minigame.difficulty = difficulty
 	minigame.next.connect(self._next)
 	add_child(minigame)

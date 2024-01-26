@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3 uid="uid://csbjvosbm20sc"]
+
+[ext_resource type="Script" path="res://scripts/drive_car.gd" id="1_w6ea2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxufd"]
+size = Vector2(180, 40)
+
+[sub_resource type="Animation" id="Animation_0d6nf"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crashable:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crashable:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_87vhw"]
+resource_name = "impact"
+length = 0.500005
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crashable:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 438.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crashable:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(0.5, 4, 1),
+"update": 0,
+"values": [0.0, -151.0, 637.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Crashable:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k1ust"]
+_data = {
+"RESET": SubResource("Animation_0d6nf"),
+"impact": SubResource("Animation_87vhw")
+}
+
+[node name="DriveCar" type="Area2D"]
+script = ExtResource("1_w6ea2")
+
+[node name="Crashable" type="Node2D" parent="."]
+
+[node name="Cat" type="Node2D" parent="Crashable"]
+position = Vector2(0, -23)
+
+[node name="ColorRect" type="ColorRect" parent="Crashable/Cat"]
+offset_left = -40.0
+offset_top = -60.0
+offset_right = 40.0
+color = Color(0.219608, 0.211765, 0.478431, 1)
+
+[node name="Car" type="Node2D" parent="Crashable"]
+
+[node name="ColorRect" type="ColorRect" parent="Crashable/Car"]
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 80.0
+offset_bottom = 20.0
+
+[node name="ColorRect2" type="ColorRect" parent="Crashable/Car"]
+offset_left = 20.0
+offset_right = 60.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Crashable/Car"]
+offset_left = -80.0
+offset_right = -40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mxufd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k1ust")
+}

@@ -23,9 +23,6 @@ const UMBRELLA_SIZE : Array[float] = [
 	35.0,
 ]
 
-@export var difficulty : int = 0
-@onready var button : Button = $Button
-@onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var pig : Node2D = $Pig
 @onready var cat : Node2D = $Cat
 @onready var umbrella_scale : Node2D = $Pig/Umbrella/Scale
@@ -33,31 +30,24 @@ var pig_walktime : float = 0
 var cat_speed : float = randf_range(CAT_MIN_SPEED, CAT_MAX_SPEED)
 var cat_accel : Array[float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 var cat_accel_index : int = 0
-var state : int = 0
 var umbrella_size : float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	button.grab_focus()
-	button.pressed.connect(self._action)
+	super()
 	umbrella_size = UMBRELLA_SIZE[difficulty]
 	umbrella_scale.scale = Vector2(umbrella_size/UMBRELLA_SIZE[0], 1)
 	for i in cat_accel.size():
 		cat_accel[i] = randf_range(-CAT_MAX_ACCEL, CAT_MAX_ACCEL)
-	anim.play("enter")
-	anim.seek(0, true, true)
-	await anim.animation_finished
-	state = 1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func win_process(delta: float) -> bool:
+	pig.position.x += PIG_SPEED*delta
+	if pig.position.x > CAT_FINISH:
+		pig.position.x = CAT_FINISH
+		return true
+	return false
 
-func _physics_process(delta: float) -> void:
-	if state != 1:
-		if state == 2:
-			pig.position.x = min(pig.position.x+PIG_SPEED*delta, CAT_FINISH)
-		return
+func minigame_process(delta: float) -> void:
 	if pig_walktime > 0:
 		pig_walktime = max(0, pig_walktime-delta)
 		pig.position.x = min(pig.position.x+PIG_SPEED*delta, CAT_FINISH)
@@ -71,19 +61,11 @@ func _physics_process(delta: float) -> void:
 	cat_speed = clampf(cat_speed+cat_accel_sum*delta/cat_accel.size(), CAT_MIN_SPEED, CAT_MAX_SPEED)
 	if cat.position.x > CAT_FINISH:
 		cat.position.x = CAT_FINISH
-		state = 2
-		anim.play("win")
-		await anim.animation_finished
-		next.emit()
-		anim.play("exit")
-		await anim.animation_finished
-		queue_free()
+		do_win()
+		return
 	if abs(cat.position.x-pig.position.x) > umbrella_size:
-		state = 0
-		anim.play("lose")
-		await anim.animation_finished
-		lose.emit()
-		queue_free()
+		do_lose()
+		return
 
-func _action() -> void:
+func action() -> void:
 	pig_walktime = PIG_WALK_TIME
