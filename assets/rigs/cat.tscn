@@ -9,7 +9,7 @@
 [node name="Cat" type="Node2D"]
 
 [node name="Root" type="Node2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.2, 0.2)
 
 [node name="Rear Hand" type="Node2D" parent="Root"]
 position = Vector2(44, -258)
@@ -49,7 +49,6 @@ texture = ExtResource("5_owel5")
 
 [node name="Front Hand" type="Node2D" parent="Root"]
 position = Vector2(-18, -275)
-scale = Vector2(1, 1)
 
 [node name="HandFront" type="Sprite2D" parent="Root/Front Hand"]
 position = Vector2(-48, 37)

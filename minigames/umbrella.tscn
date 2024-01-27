@@ -520,8 +520,9 @@ offset_bottom = 648.0
 color = Color(1, 1, 1, 0)
 
 [node name="Rainblock" type="Polygon2D" parent="Rain"]
-position = Vector2(972, 534)
-polygon = PackedVector2Array(-150, -200, 150, -200, 150, 100, -150, 100)
+position = Vector2(180, 534)
+scale = Vector2(1e-05, 1)
+polygon = PackedVector2Array(-150, -200, 4, -282, 150, -200, 150, 100, -150, 100)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

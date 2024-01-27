@@ -10,7 +10,7 @@ void fragment() {
 	//COLOR = vec4(textureLod(screen_texture, SCREEN_UV, 0.0).rgb*0.5,1);
 	vec4 c = textureLod(screen_texture, SCREEN_UV, 0.0);
 	vec2 uv = UV;
-	uv.y -= TIME*2.0;
+	uv.y -= TIME*.25;
 	COLOR = textureLod(rain_texture, uv, 0.0);
 	COLOR.a *= 1.0-c.a;
 }
