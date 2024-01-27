@@ -7,6 +7,7 @@ const MINIGAMES : Array[PackedScene] = [
 	preload("res://minigames/drive.tscn"),
 	preload("res://minigames/duel.tscn"),
 	preload("res://minigames/parachute.tscn"),
+	preload("res://minigames/train.tscn"),
 ]
 
 var difficulty : int = 0
