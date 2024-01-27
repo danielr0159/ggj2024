@@ -3,9 +3,9 @@ class_name UmbrellaMinigame
 
 const PIG_SPEED : float = 150.0
 const PIG_WALK_TIME : float = 0.1
-const CAT_MIN_SPEED : float = 10.0
-const CAT_MAX_SPEED : float = 100.0
-const CAT_MAX_ACCEL : float = 200.0
+const CAT_MIN_SPEED : float = 30.0
+const CAT_MAX_SPEED : float = 80.0
+const CAT_MAX_ACCEL : float = 300.0
 const CAT_FINISH : float = 972.0
 const UMBRELLA_SIZE : Array[float] = [
 	120.0,
@@ -28,7 +28,7 @@ const UMBRELLA_SIZE : Array[float] = [
 @onready var umbrella_scale : Node2D = $Pig/Umbrella/Scale
 var pig_walktime : float = 0
 var cat_speed : float = randf_range(CAT_MIN_SPEED, CAT_MAX_SPEED)
-var cat_accel : Array[float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+var cat_accel : Array[float] = [0.0, 0.0, 0.0, 0.0, 0.0]
 var cat_accel_index : int = 0
 var umbrella_size : float = 0.0
 

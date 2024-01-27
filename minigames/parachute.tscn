@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://0mtcntplt1mq"]
+[gd_scene load_steps=11 format=3 uid="uid://d28fdawy5vh64"]
 
-[ext_resource type="Script" path="res://scripts/umbrella.gd" id="1_pmpt0"]
-[ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_3hsuf"]
+[ext_resource type="Script" path="res://scripts/parachute.gd" id="1_2pp46"]
+[ext_resource type="PackedScene" uid="uid://dnff1h6m33ixc" path="res://entities/parachute_cart.tscn" id="2_88yh2"]
+[ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_a3m0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mt8h"]
+size = Vector2(100, 100)
 
 [sub_resource type="Animation" id="Animation_61q0i"]
 resource_name = "RESET"
@@ -32,7 +36,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Pig/Umbrella/Scale/ColorRect2:size")
+tracks/2/path = NodePath("Pig/Parachute/ColorRect2:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -51,7 +55,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(180, 534)]
+"values": [Vector2(180, 380)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -75,12 +79,12 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(180, 534)]
+"values": [Vector2(180, 380)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Pig/Umbrella/Scale/ColorRect2:visible")
+tracks/6/path = NodePath("Pig/Parachute/ColorRect2:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -92,7 +96,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Pig/Umbrella:scale")
+tracks/7/path = NodePath("Pig/Parachute:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -104,43 +108,102 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Cat:position")
+tracks/8/path = NodePath("Pig/Parachute:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(180, 534)]
+"update": 1,
+"values": [true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Cat:visible")
+tracks/9/path = NodePath("ProxyParachute:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(972, 400)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Pig/Umbrella:visible")
+tracks/10/path = NodePath("ProxyParachute:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ProxyParachute:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Pig/Parachute:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Pig/Parachute:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Pig/Crashable:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -50)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Pig/Crashable:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_ipj1v"]
 resource_name = "enter"
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -187,7 +250,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 3, 1),
 "update": 0,
-"values": [360.0, 360.0, 534.0]
+"values": [360.0, 360.0, 380.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -223,16 +286,16 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 3, 1),
 "update": 0,
-"values": [360.0, 360.0, 534.0]
+"values": [360.0, 360.0, 380.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Pig/Umbrella:visible")
+tracks/7/path = NodePath("Pig/Parachute:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -240,14 +303,14 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Pig/Umbrella:scale:x")
+tracks/8/path = NodePath("Pig/Parachute:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1, 1.5),
+"times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 1.0]
+"values": [Vector2(0, 0), Vector2(1e-05, 1e-05), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_24mam"]
@@ -286,7 +349,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(0.5, 1, 1),
 "update": 0,
-"values": [534.0, 360.0, 360.0]
+"values": [400.0, 360.0, 360.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -322,7 +385,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(0.5, 1, 1),
 "update": 0,
-"values": [534.0, 360.0, 360.0]
+"values": [400.0, 360.0, 360.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -339,7 +402,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Cat:visible")
+tracks/7/path = NodePath("Pig/Parachute:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -348,63 +411,135 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
-
-[sub_resource type="Animation" id="Animation_r1jpy"]
-resource_name = "lose"
-
-[sub_resource type="Animation" id="Animation_l2a5f"]
-resource_name = "win"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pig/Umbrella:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pig/Umbrella:scale:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ProxyParachute:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.0, 0.0]
+"values": [972.0, 800.0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cat:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ProxyParachute:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [400.0, 1000.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ProxyParachute:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(972, 534), Vector2(1200, 534)]
+"values": [0.0, -1.22173]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cat:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ProxyParachute:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1jacl"]
+[sub_resource type="Animation" id="Animation_r1jpy"]
+resource_name = "lose"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pig/Crashable:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 172.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pig/Crashable:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [-50.0, 550.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pig/Crashable:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 10.472]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pig/Parachute:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -172.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pig/Parachute:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [0.0, 600.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pig/Parachute:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.22173]
+}
+
+[sub_resource type="Animation" id="Animation_l2a5f"]
+resource_name = "win"
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5apll"]
 _data = {
 "RESET": SubResource("Animation_61q0i"),
 "enter": SubResource("Animation_ipj1v"),
@@ -413,48 +548,106 @@ _data = {
 "win": SubResource("Animation_l2a5f")
 }
 
-[node name="Umbrella" type="Node2D"]
-script = ExtResource("1_pmpt0")
+[node name="Parachute" type="Node2D"]
+script = ExtResource("1_2pp46")
+
+[node name="Carts" type="Node2D" parent="."]
+
+[node name="Cart" parent="Carts" instance=ExtResource("2_88yh2")]
+position = Vector2(687, -128)
+
+[node name="Cart3" parent="Carts" instance=ExtResource("2_88yh2")]
+position = Vector2(687, -128)
+start_time = 4.0
+
+[node name="Cart5" parent="Carts" instance=ExtResource("2_88yh2")]
+position = Vector2(687, -128)
+start_time = 8.0
+
+[node name="Cart6" parent="Carts" instance=ExtResource("2_88yh2")]
+position = Vector2(687, -128)
+start_time = 12.0
+
+[node name="Cart2" parent="Carts" instance=ExtResource("2_88yh2")]
+position = Vector2(340, -135)
+reverse = true
+
+[node name="Cart4" parent="Carts" instance=ExtResource("2_88yh2")]
+position = Vector2(340, -135)
+start_time = 4.0
+reverse = true
+
+[node name="Cart7" parent="Carts" instance=ExtResource("2_88yh2")]
+position = Vector2(340, -135)
+start_time = 8.0
+reverse = true
+
+[node name="Cart8" parent="Carts" instance=ExtResource("2_88yh2")]
+position = Vector2(340, -135)
+start_time = 12.0
+reverse = true
+
+[node name="SafeZone" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="SafeZone"]
+offset_right = 300.0
+offset_bottom = 648.0
+color = Color(0.505344, 0.505344, 0.505344, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="SafeZone"]
+offset_left = 852.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.505344, 0.505344, 0.505344, 1)
+
+[node name="ProxyParachute" type="Node2D" parent="."]
+visible = false
+position = Vector2(972, 400)
+
+[node name="ColorRect2" type="ColorRect" parent="ProxyParachute"]
+offset_left = -150.0
+offset_top = -248.0
+offset_right = 150.0
+offset_bottom = -188.0
 
 [node name="Pig" type="Node2D" parent="."]
-position = Vector2(180, 534)
+position = Vector2(180, 380)
 
-[node name="ColorRect" type="ColorRect" parent="Pig"]
+[node name="Crashable" type="Node2D" parent="Pig"]
+position = Vector2(0, -50)
+
+[node name="ColorRect" type="ColorRect" parent="Pig/Crashable"]
 offset_left = -50.0
-offset_top = -100.0
+offset_top = -50.0
 offset_right = 50.0
+offset_bottom = 50.0
 color = Color(1, 0.443137, 0.74902, 1)
 
-[node name="Umbrella" type="Node2D" parent="Pig"]
+[node name="Parachute" type="Node2D" parent="Pig"]
 
-[node name="Scale" type="Node2D" parent="Pig/Umbrella"]
-
-[node name="ColorRect2" type="ColorRect" parent="Pig/Umbrella/Scale"]
+[node name="ColorRect2" type="ColorRect" parent="Pig/Parachute"]
 offset_left = -150.0
-offset_top = -250.0
+offset_top = -248.0
 offset_right = 150.0
-offset_bottom = -190.0
+offset_bottom = -188.0
 
-[node name="Cat" type="Node2D" parent="."]
-position = Vector2(180, 534)
+[node name="Collision" type="Area2D" parent="Pig"]
 
-[node name="ColorRect" type="ColorRect" parent="Cat"]
-offset_left = -40.0
-offset_top = -60.0
-offset_right = 40.0
-color = Color(0.219608, 0.211765, 0.478431, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pig/Collision"]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_1mt8h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_1jacl")
+"": SubResource("AnimationLibrary_5apll")
 }
 
-[node name="Frame" parent="." instance=ExtResource("2_3hsuf")]
+[node name="Frame" parent="." instance=ExtResource("2_a3m0q")]
 
 [node name="ProxyPig" type="Node2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(180, 534)
+position = Vector2(180, 380)
 
 [node name="ColorRect" type="ColorRect" parent="ProxyPig"]
 offset_left = -50.0
