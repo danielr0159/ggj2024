@@ -10,3 +10,4 @@ func _ready() -> void:
 	animation_player.play("dead")
 	await animation_player.animation_finished
 	complete.emit()
+	queue_free()

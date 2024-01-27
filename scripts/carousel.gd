@@ -9,6 +9,7 @@ var try_match : bool = false
 
 func _ready() -> void:
 	super()
+	$Frame/Progress.visible = false
 	$ProxyPig/Pig.level = pig_level
 	spin.play("spin")
 	spin.seek(randf_range(0, spin.current_animation_length), true, true)

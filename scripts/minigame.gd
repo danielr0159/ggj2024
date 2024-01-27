@@ -5,6 +5,7 @@ class_name Minigame
 @export var pig_level : int = 0
 @onready var button : Button = $Button
 @onready var anim : AnimationPlayer = $AnimationPlayer
+@onready var progress : AnimatedSprite2D = $Frame/Progress
 var state : int = 0
 var sigdone : SigDone = SigDone.new()
 
@@ -12,6 +13,7 @@ signal lose
 signal next
 
 func _ready() -> void:
+	progress.frame = min(difficulty, 19)
 	button.grab_focus()
 	button.pressed.connect(self._action)
 	anim.play("enter")

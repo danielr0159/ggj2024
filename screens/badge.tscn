@@ -1,9 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://dchaccia8b5lg"]
+[gd_scene load_steps=14 format=3 uid="uid://dchaccia8b5lg"]
 
 [ext_resource type="Script" path="res://scripts/badge.gd" id="1_hc02a"]
 [ext_resource type="Texture2D" uid="uid://b342ekeo07dyd" path="res://assets/images/badge/upgrade_1.png" id="2_p6eih"]
 [ext_resource type="PackedScene" uid="uid://ccx8n7nigis8c" path="res://assets/rigs/pig.tscn" id="2_pnyvw"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="3_s2wpq"]
+[ext_resource type="Texture2D" uid="uid://dq14rpvnoei6a" path="res://assets/images/badge/upgrade_2.png" id="3_xlid6"]
+[ext_resource type="Texture2D" uid="uid://b6uiwws6ap14a" path="res://assets/images/badge/upgrade_3.png" id="4_3ld0o"]
+[ext_resource type="Texture2D" uid="uid://b1gkap1w7hu40" path="res://assets/images/badge/upgrade_4.png" id="5_luojb"]
+[ext_resource type="SpriteFrames" uid="uid://cp6bh3y8ai5n6" path="res://assets/images/explosion/sprites.tres" id="5_xhb1n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0lt0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p6eih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xlid6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3ld0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_luojb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_vgb7b"]
 resource_name = "RESET"
@@ -54,6 +78,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [""]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Boom:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Boom:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_fa37y"]
@@ -119,6 +167,30 @@ tracks/4/keys = {
 "update": 1,
 "values": ["level_up"]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Boom:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.2, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Boom:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.3, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 0, 5]
+}
 
 [sub_resource type="Animation" id="Animation_jd117"]
 resource_name = "exit"
@@ -182,12 +254,18 @@ _data = {
 [node name="Badge" type="Node2D"]
 script = ExtResource("1_hc02a")
 
-[node name="Upgrade1" type="Sprite2D" parent="."]
+[node name="BG" type="AnimatedSprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_p6eih")
+sprite_frames = SubResource("SpriteFrames_v0lt0")
 
 [node name="Frame" parent="." instance=ExtResource("3_s2wpq")]
+
+[node name="Boom" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(630, 424)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("5_xhb1n")
 
 [node name="Pig" parent="." instance=ExtResource("2_pnyvw")]
 

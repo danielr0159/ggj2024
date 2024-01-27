@@ -6,8 +6,8 @@ const MINIGAMES : Array[PackedScene] = [
 	preload("res://minigames/umbrella.tscn"),
 	preload("res://minigames/drive.tscn"),
 	preload("res://minigames/duel.tscn"),
-	#preload("res://minigames/parachute.tscn"),
-	#preload("res://minigames/train.tscn"),
+	preload("res://minigames/parachute.tscn"),
+	preload("res://minigames/train.tscn"),
 ]
 
 var difficulty : int = 0
@@ -32,6 +32,7 @@ func _restart() -> void:
 	add_child(screen)
 	await screen.start
 	var minigame : Minigame = preload("res://minigames/carousel.tscn").instantiate()
+	minigame.pig_level = pig_level
 	minigame.lose.connect(self._deadscreen)
 	minigame.next.connect(self._run_minigame)
 	add_child(minigame)
@@ -39,7 +40,7 @@ func _restart() -> void:
 func _next() -> void:
 	difficulty += 1
 	@warning_ignore("integer_division")
-	var new_level : int = min(difficulty/3, 4)
+	var new_level : int = min(difficulty/5, 4)
 	if pig_level < new_level:
 		var screen : BadgeScreen = preload("res://screens/badge.tscn").instantiate()
 		screen.pig_level = pig_level
