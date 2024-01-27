@@ -21,6 +21,23 @@ const UMBRELLA_SIZE : Array[float] = [
 	45.0,
 	40.0,
 	35.0,
+	34.0,
+	33.0,
+	32.0,
+	31.0,
+	30.0,
+	29.0,
+	28.0,
+	27.0,
+	26.0,
+	25.0,
+	24.0,
+	23.0,
+	22.0,
+	21.0,
+	20.0,
+	19.0,
+	18.0,
 ]
 
 @onready var pig : Node2D = $Pig
@@ -35,6 +52,8 @@ var umbrella_size : float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	$Pig/Pig.level = pig_level
+	$ProxyPig/Pig.level = pig_level
 	umbrella_size = UMBRELLA_SIZE[difficulty]
 	umbrella_scale.scale = Vector2(umbrella_size/UMBRELLA_SIZE[0], 1)
 	for i in cat_accel.size():

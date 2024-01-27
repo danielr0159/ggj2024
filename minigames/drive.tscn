@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7c1v6p62jbwp"]
+[gd_scene load_steps=17 format=3 uid="uid://c7c1v6p62jbwp"]
 
 [ext_resource type="Script" path="res://scripts/drive.gd" id="1_dynet"]
+[ext_resource type="PackedScene" uid="uid://ccx8n7nigis8c" path="res://assets/rigs/pig.tscn" id="2_5jswt"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_dchgk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hq578"]
@@ -507,11 +508,7 @@ position = Vector2(180, 430)
 
 [node name="Crashable" type="Node2D" parent="YSort/Pig"]
 
-[node name="ColorRect" type="ColorRect" parent="YSort/Pig/Crashable"]
-offset_left = -50.0
-offset_top = -100.0
-offset_right = 50.0
-color = Color(1, 0.443137, 0.74902, 1)
+[node name="Pig" parent="YSort/Pig/Crashable" instance=ExtResource("2_5jswt")]
 
 [node name="Car" type="Node2D" parent="YSort/Pig/Crashable"]
 
@@ -554,11 +551,7 @@ visible = false
 z_index = 1
 position = Vector2(180, 534)
 
-[node name="ColorRect" type="ColorRect" parent="ProxyPig"]
-offset_left = -50.0
-offset_top = -100.0
-offset_right = 50.0
-color = Color(1, 0.443137, 0.74902, 1)
+[node name="Pig" parent="ProxyPig" instance=ExtResource("2_5jswt")]
 
 [node name="Filter" type="ColorRect" parent="."]
 clip_children = 1

@@ -48,6 +48,8 @@ var car_drive_speed : float = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	$YSort/Pig/Crashable/Pig.level = pig_level
+	$ProxyPig/Pig.level = pig_level
 	survive_time = SURVIVE_TIME[difficulty]
 	car_drive_speed = CAR_DRIVE_SPEED[difficulty]
 

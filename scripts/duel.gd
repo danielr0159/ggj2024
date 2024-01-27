@@ -13,6 +13,8 @@ var resolution : int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	$Pig/Pig.level = pig_level
+	$ProxyPig/Pig.level = pig_level
 	hit_timing = randf_range(MIN_TIMING, MAX_TIMING)
 
 func minigame_start() -> void:

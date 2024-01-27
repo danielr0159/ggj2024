@@ -11,6 +11,7 @@ const MINIGAMES : Array[PackedScene] = [
 ]
 
 var difficulty : int = 0
+var pig_level : int = 0
 var unused_minigames : Array[int] = []
 var last_played  : int = -1
 var last_died  : int = -1
@@ -36,13 +37,16 @@ func _restart() -> void:
 
 func _next() -> void:
 	difficulty += 1
-	if difficulty % 5 == 0:
+	@warning_ignore("integer_division")
+	var new_level : int = min(difficulty/5, 4)
+	if pig_level < new_level:
 		var screen : BadgeScreen = preload("res://screens/badge.tscn").instantiate()
-		screen.badge = difficulty/5
+		screen.pig_level = pig_level
+		pig_level = new_level
 		add_child(screen)
 		await screen.complete
-		if difficulty >= 6:
-			_restart()
+	if difficulty >= 30:
+		_restart()
 	_run_minigame()
 	
 func _run_minigame() -> void:
@@ -57,6 +61,7 @@ func _run_minigame() -> void:
 	last_played = game
 	var minigame : Minigame = MINIGAMES[game].instantiate()
 	minigame.difficulty = difficulty
+	minigame.pig_level = pig_level
 	minigame.lose.connect(self._deadscreen)
 	minigame.next.connect(self._next)
 	add_child(minigame)

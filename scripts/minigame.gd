@@ -2,6 +2,7 @@ extends Node2D
 class_name Minigame
 
 @export var difficulty : int = 0
+@export var pig_level : int = 0
 @onready var button : Button = $Button
 @onready var anim : AnimationPlayer = $AnimationPlayer
 var state : int = 0

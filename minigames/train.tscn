@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://xh5mdjwutl1j"]
+[gd_scene load_steps=17 format=3 uid="uid://xh5mdjwutl1j"]
 
 [ext_resource type="Script" path="res://scripts/train.gd" id="1_465ga"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_7m6t5"]
+[ext_resource type="PackedScene" uid="uid://ccx8n7nigis8c" path="res://assets/rigs/pig.tscn" id="2_l6o1s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r0wm"]
 size = Vector2(600, 200)
@@ -74,7 +75,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Pig/Spin:rotation")
+tracks/5/path = NodePath("Pig/Crashable:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -258,23 +259,6 @@ tracks/6/keys = {
 "values": [Vector2(0, 0), Vector2(-1202, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_6haox"]
-resource_name = "win"
-length = 0.150005
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pig:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(500, 550), Vector2(907.143, 550)]
-}
-
 [sub_resource type="Animation" id="Animation_2pmk2"]
 resource_name = "lose"
 tracks/0/type = "value"
@@ -304,7 +288,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Pig/Spin:rotation")
+tracks/2/path = NodePath("Pig/Crashable:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -312,6 +296,23 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 10.472]
+}
+
+[sub_resource type="Animation" id="Animation_6haox"]
+resource_name = "win"
+length = 0.150005
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(500, 550), Vector2(907.143, 550)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_407mh"]
@@ -355,6 +356,21 @@ _data = {
 "jump": SubResource("Animation_blnl0")
 }
 
+[sub_resource type="Animation" id="Animation_niehr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-400, 648)]
+}
+
 [sub_resource type="Animation" id="Animation_gtndp"]
 resource_name = "pass"
 length = 0.7
@@ -369,21 +385,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-400, 648), Vector2(1500, 648)]
-}
-
-[sub_resource type="Animation" id="Animation_niehr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-400, 648)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dnota"]
@@ -416,15 +417,11 @@ shape = SubResource("RectangleShape2D_1r0wm")
 [node name="Pig" type="Node2D" parent="."]
 position = Vector2(180, 460)
 
-[node name="Spin" type="Node2D" parent="Pig"]
+[node name="Crashable" type="Node2D" parent="Pig"]
 position = Vector2(0, -50)
 
-[node name="ColorRect" type="ColorRect" parent="Pig/Spin"]
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
-color = Color(1, 0.443137, 0.74902, 1)
+[node name="Pig" parent="Pig/Crashable" instance=ExtResource("2_l6o1s")]
+position = Vector2(0, 50)
 
 [node name="Collision" type="Area2D" parent="Pig"]
 position = Vector2(0, -50)
@@ -457,11 +454,7 @@ visible = false
 z_index = 1
 position = Vector2(180, 534)
 
-[node name="ColorRect" type="ColorRect" parent="ProxyPig"]
-offset_left = -50.0
-offset_top = -100.0
-offset_right = 50.0
-color = Color(1, 0.443137, 0.74902, 1)
+[node name="Pig" parent="ProxyPig" instance=ExtResource("2_l6o1s")]
 
 [node name="Button" type="Button" parent="."]
 offset_right = 1152.0

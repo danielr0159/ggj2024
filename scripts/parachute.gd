@@ -22,6 +22,8 @@ var going_down : bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	$Pig/Crashable/Pig.level = pig_level
+	$ProxyPig/Pig.level = pig_level
 
 func minigame_process(delta: float) -> void:
 	pig.position.x += HORIZONTAL_SPEED*delta

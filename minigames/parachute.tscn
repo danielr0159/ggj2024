@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://d28fdawy5vh64"]
+[gd_scene load_steps=12 format=3 uid="uid://d28fdawy5vh64"]
 
 [ext_resource type="Script" path="res://scripts/parachute.gd" id="1_2pp46"]
 [ext_resource type="PackedScene" uid="uid://dnff1h6m33ixc" path="res://entities/parachute_cart.tscn" id="2_88yh2"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_a3m0q"]
+[ext_resource type="PackedScene" uid="uid://ccx8n7nigis8c" path="res://assets/rigs/pig.tscn" id="3_dhyg5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mt8h"]
 size = Vector2(100, 100)
@@ -616,12 +617,8 @@ position = Vector2(180, 380)
 [node name="Crashable" type="Node2D" parent="Pig"]
 position = Vector2(0, -50)
 
-[node name="ColorRect" type="ColorRect" parent="Pig/Crashable"]
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
-color = Color(1, 0.443137, 0.74902, 1)
+[node name="Pig" parent="Pig/Crashable" instance=ExtResource("3_dhyg5")]
+position = Vector2(0, 50)
 
 [node name="Parachute" type="Node2D" parent="Pig"]
 
@@ -649,11 +646,7 @@ visible = false
 z_index = 1
 position = Vector2(180, 380)
 
-[node name="ColorRect" type="ColorRect" parent="ProxyPig"]
-offset_left = -50.0
-offset_top = -100.0
-offset_right = 50.0
-color = Color(1, 0.443137, 0.74902, 1)
+[node name="Pig" parent="ProxyPig" instance=ExtResource("3_dhyg5")]
 
 [node name="Button" type="Button" parent="."]
 offset_right = 1152.0

@@ -1,0 +1,236 @@
+[gd_scene load_steps=12 format=3 uid="uid://ccx8n7nigis8c"]
+
+[ext_resource type="Texture2D" uid="uid://c0tsspdhg5b8j" path="res://assets/images/pig/Pig_leg.png" id="1_l4020"]
+[ext_resource type="Script" path="res://scripts/pig.gd" id="1_p4if8"]
+[ext_resource type="Texture2D" uid="uid://dch5e44cmi45k" path="res://assets/images/pig/Pig_top_l1.png" id="2_0ft0e"]
+[ext_resource type="Texture2D" uid="uid://cdd8w7t0hc4wg" path="res://assets/images/pig/Pig_top_l2.png" id="3_r3g3s"]
+[ext_resource type="Texture2D" uid="uid://cwrbcbtrqnbkx" path="res://assets/images/pig/Pig_top_l3.png" id="4_xtnnf"]
+[ext_resource type="Texture2D" uid="uid://bnte1yfqk3a8u" path="res://assets/images/pig/Pig_top_l4.png" id="5_e4g66"]
+[ext_resource type="Texture2D" uid="uid://bacea7j6p45jx" path="res://assets/images/pig/Pig_top_l5.png" id="6_yr7x1"]
+[ext_resource type="Texture2D" uid="uid://dgtwuk7lnhlvn" path="res://assets/images/pig/Hand_front.png" id="7_jjwb2"]
+
+[sub_resource type="Animation" id="Animation_iyslc"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/LegBack:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/LegBack:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 364)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/LegFront:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/LegFront:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, 363)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Root:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -56)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Root/Hand:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_fox7n"]
+resource_name = "level_up"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/LegBack:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.3, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.523599, -0.523599, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/LegBack:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(50, 364), Vector2(50, 364), Vector2(-9.99999, 400), Vector2(-9.99999, 400), Vector2(50, 364)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/LegFront:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.3, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.523599, 0.523599, 0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/LegFront:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-128, 363), Vector2(-128, 363), Vector2(-90, 400), Vector2(-90, 400), Vector2(-128, 363)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Root:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.3, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -56), Vector2(0, -56), Vector2(0, -52), Vector2(0, -52), Vector2(0, -60), Vector2(0, -60), Vector2(0, -56)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Root/Hand:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2, 1.5, 2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.785398, -0.785398, -0.349066, -3.14159, -3.14159, -0.785398]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"level_up"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ngj1"]
+_data = {
+"RESET": SubResource("Animation_iyslc"),
+"level_up": SubResource("Animation_fox7n")
+}
+
+[node name="Pig" type="Node2D"]
+script = ExtResource("1_p4if8")
+
+[node name="Root" type="Node2D" parent="."]
+position = Vector2(0, -56)
+scale = Vector2(0.1, 0.1)
+
+[node name="LegBack" type="Node2D" parent="Root"]
+position = Vector2(50, 364)
+
+[node name="PigLeg" type="Sprite2D" parent="Root/LegBack"]
+position = Vector2(0, 120)
+texture = ExtResource("1_l4020")
+
+[node name="LegFront" type="Node2D" parent="Root"]
+position = Vector2(-128, 363)
+
+[node name="PigLeg" type="Sprite2D" parent="Root/LegFront"]
+position = Vector2(0, 120)
+texture = ExtResource("1_l4020")
+
+[node name="Top" type="Node2D" parent="Root"]
+
+[node name="PigTopL1" type="Sprite2D" parent="Root/Top"]
+texture = ExtResource("2_0ft0e")
+
+[node name="PigTopL2" type="Sprite2D" parent="Root/Top"]
+visible = false
+texture = ExtResource("3_r3g3s")
+
+[node name="PigTopL3" type="Sprite2D" parent="Root/Top"]
+visible = false
+texture = ExtResource("4_xtnnf")
+
+[node name="PigTopL4" type="Sprite2D" parent="Root/Top"]
+visible = false
+texture = ExtResource("5_e4g66")
+
+[node name="PigTopL5" type="Sprite2D" parent="Root/Top"]
+visible = false
+texture = ExtResource("6_yr7x1")
+
+[node name="Hand" type="Node2D" parent="Root"]
+position = Vector2(-150, 90)
+rotation = -0.785398
+
+[node name="HandFront" type="Sprite2D" parent="Root/Hand"]
+position = Vector2(0, 110)
+texture = ExtResource("7_jjwb2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8ngj1")
+}
