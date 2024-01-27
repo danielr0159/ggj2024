@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://0mtcntplt1mq"]
+[gd_scene load_steps=18 format=3 uid="uid://0mtcntplt1mq"]
 
 [ext_resource type="Script" path="res://scripts/umbrella.gd" id="1_pmpt0"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_3hsuf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://drxfj47js3hh7" path="res://assets/images/umbrella/Umbrella_bottom.png" id="4_rkdft"]
 [ext_resource type="Texture2D" uid="uid://pj3sea7cldld" path="res://assets/images/umbrella/rain_drops.png" id="5_bosuy"]
 [ext_resource type="PackedScene" uid="uid://f31b4hg712jc" path="res://assets/rigs/cat.tscn" id="6_444ry"]
+[ext_resource type="AudioStream" uid="uid://cjym0c3g4rgxm" path="res://assets/sounds/RainMusic+Ambient.wav" id="10_yyj6w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hj563"]
 shader = ExtResource("4_bp6hd")
@@ -520,7 +521,7 @@ offset_bottom = 648.0
 color = Color(1, 1, 1, 0)
 
 [node name="Rainblock" type="Polygon2D" parent="Rain"]
-position = Vector2(180, 534)
+position = Vector2(-50, 360)
 scale = Vector2(1e-05, 1)
 polygon = PackedVector2Array(-150, -200, 4, -282, 150, -200, 150, 100, -150, 100)
 
@@ -548,3 +549,7 @@ offset = Vector2(0, -450)
 offset_right = 1152.0
 offset_bottom = 648.0
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_yyj6w")
+autoplay = true

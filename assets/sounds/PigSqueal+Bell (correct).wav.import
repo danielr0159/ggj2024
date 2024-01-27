@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7cfbepevt4ev"
+path="res://.godot/imported/PigSqueal+Bell (correct).wav-6afe945831eaafbbd77b03835f08d9f1.sample"
+
+[deps]
+
+source_file="res://assets/sounds/PigSqueal+Bell (correct).wav"
+dest_files=["res://.godot/imported/PigSqueal+Bell (correct).wav-6afe945831eaafbbd77b03835f08d9f1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
