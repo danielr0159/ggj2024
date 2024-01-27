@@ -28,6 +28,7 @@ func _restart() -> void:
 		if i != last_died:
 			unused_minigames.push_back(i)
 	var screen : StartScreen = preload("res://screens/start.tscn").instantiate()
+	screen.pig_level = pig_level
 	add_child(screen)
 	await screen.start
 	var minigame : Minigame = preload("res://minigames/carousel.tscn").instantiate()
