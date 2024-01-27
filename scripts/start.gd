@@ -6,12 +6,12 @@ signal start
 @export var pig_level: int = 0
 
 @onready var button: Button = $Button
+@onready var bg: AnimatedSprite2D = $BG
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if pig_level > 0:
-		$Start1.visible = false
-		$Start2.visible = true
+	bg.frame = pig_level
 	button.grab_focus()
 	button.pressed.connect(self._action)
 

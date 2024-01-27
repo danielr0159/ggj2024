@@ -1,23 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://dadh65rrjtb1o"]
+[gd_scene load_steps=9 format=3 uid="uid://dadh65rrjtb1o"]
 
 [ext_resource type="Script" path="res://scripts/start.gd" id="1_5h3gt"]
 [ext_resource type="Texture2D" uid="uid://c0gtgg6ibatfh" path="res://assets/images/start/start_1.png" id="2_awfvf"]
 [ext_resource type="Texture2D" uid="uid://qrrlfm3ljol2" path="res://assets/images/start/start_2.png" id="3_p3c3o"]
+[ext_resource type="Texture2D" uid="uid://b62prxpmuog2k" path="res://assets/images/start/start_3.png" id="4_6c8l0"]
 [ext_resource type="AudioStream" uid="uid://bs5sadbe7sh7m" path="res://assets/sounds/StartScreenMusic.wav" id="4_bv3p5"]
+[ext_resource type="Texture2D" uid="uid://bcldm5kmk7i0i" path="res://assets/images/start/start_4.png" id="5_saaje"]
+[ext_resource type="Texture2D" uid="uid://ds5iccj5feq5y" path="res://assets/images/start/start_5.png" id="6_t2mjl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8aekg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_awfvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p3c3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6c8l0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_saaje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t2mjl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Start" type="Node2D"]
 script = ExtResource("1_5h3gt")
 
-[node name="Start1" type="Sprite2D" parent="."]
+[node name="BG" type="AnimatedSprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_awfvf")
-
-[node name="Start2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(576, 324)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_p3c3o")
+sprite_frames = SubResource("SpriteFrames_8aekg")
 
 [node name="Button" type="Button" parent="."]
 offset_right = 1152.0
