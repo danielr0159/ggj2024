@@ -18,3 +18,7 @@ config/icon="res://icon.svg"
 [display]
 
 window/stretch/mode="canvas_items"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/SlugFiller Backtop/Documents/code/ggj2014.avi"

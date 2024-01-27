@@ -1,8 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://0mtcntplt1mq"]
+[gd_scene load_steps=16 format=3 uid="uid://0mtcntplt1mq"]
 
 [ext_resource type="Script" path="res://scripts/umbrella.gd" id="1_pmpt0"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_3hsuf"]
 [ext_resource type="PackedScene" uid="uid://ccx8n7nigis8c" path="res://assets/rigs/pig.tscn" id="2_tr4fh"]
+[ext_resource type="Texture2D" uid="uid://dd5fi3b0vf34l" path="res://assets/images/umbrella/bg_rain.png" id="2_unsk2"]
+[ext_resource type="Texture2D" uid="uid://d0u0jj13dkenm" path="res://assets/images/umbrella/Umbrella_top.png" id="4_5nwo3"]
+[ext_resource type="Shader" path="res://shaders/rain.gdshader" id="4_bp6hd"]
+[ext_resource type="Texture2D" uid="uid://drxfj47js3hh7" path="res://assets/images/umbrella/Umbrella_bottom.png" id="4_rkdft"]
+[ext_resource type="Texture2D" uid="uid://pj3sea7cldld" path="res://assets/images/umbrella/rain_drops.png" id="5_bosuy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hj563"]
+shader = ExtResource("4_bp6hd")
+shader_parameter/rain_texture = ExtResource("5_bosuy")
 
 [sub_resource type="Animation" id="Animation_61q0i"]
 resource_name = "RESET"
@@ -33,110 +42,110 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Pig/Umbrella/Scale/ColorRect2:size")
+tracks/2/path = NodePath("ProxyPig:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(300, 60)]
+"values": [Vector2(180, 534)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ProxyPig:position")
+tracks/3/path = NodePath("ProxyPig:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(180, 534)]
+"update": 1,
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ProxyPig:visible")
+tracks/4/path = NodePath("Pig:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(180, 534)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Pig:position")
+tracks/5/path = NodePath("Pig/Umbrella:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(180, 534)]
+"values": [Vector2(1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Pig/Umbrella/Scale/ColorRect2:visible")
+tracks/6/path = NodePath("Cat:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(180, 534)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Pig/Umbrella:scale")
+tracks/7/path = NodePath("Cat:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Cat:position")
+tracks/8/path = NodePath("Pig/Umbrella:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(180, 534)]
+"update": 1,
+"values": [true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Cat:visible")
+tracks/9/path = NodePath("Pig/UmbrellaBottom:scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Pig/Umbrella:visible")
+tracks/10/path = NodePath("ProxyPig/UmbrellaBottom:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
 }
 
 [sub_resource type="Animation" id="Animation_ipj1v"]
@@ -250,6 +259,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [0.0, 0.0, 1.0]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ProxyPig/UmbrellaBottom:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0.25, 0.25)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Pig/UmbrellaBottom:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0.25, 0.25)]
+}
 
 [sub_resource type="Animation" id="Animation_24mam"]
 resource_name = "exit"
@@ -349,6 +382,30 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ProxyPig/UmbrellaBottom:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Pig/UmbrellaBottom:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0, 0), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_r1jpy"]
 resource_name = "lose"
@@ -417,20 +474,33 @@ _data = {
 [node name="Umbrella" type="Node2D"]
 script = ExtResource("1_pmpt0")
 
+[node name="BgRain" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_unsk2")
+
 [node name="Pig" type="Node2D" parent="."]
 position = Vector2(180, 534)
 
 [node name="Pig" parent="Pig" instance=ExtResource("2_tr4fh")]
 
+[node name="UmbrellaBottom" type="Sprite2D" parent="Pig"]
+position = Vector2(0, -48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_rkdft")
+offset = Vector2(0, -450)
+
 [node name="Umbrella" type="Node2D" parent="Pig"]
 
 [node name="Scale" type="Node2D" parent="Pig/Umbrella"]
 
-[node name="ColorRect2" type="ColorRect" parent="Pig/Umbrella/Scale"]
-offset_left = -150.0
-offset_top = -250.0
-offset_right = 150.0
-offset_bottom = -190.0
+[node name="UmbrellaTop" type="Sprite2D" parent="Pig/Umbrella/Scale"]
+position = Vector2(0, -226)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_5nwo3")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Pig/Umbrella/Scale"]
+remote_path = NodePath("../../../../Rain/Rainblock")
 
 [node name="Cat" type="Node2D" parent="."]
 position = Vector2(180, 534)
@@ -440,6 +510,21 @@ offset_left = -40.0
 offset_top = -60.0
 offset_right = 40.0
 color = Color(0.219608, 0.211765, 0.478431, 1)
+
+[node name="Rain" type="CanvasGroup" parent="."]
+clip_children = 1
+material = SubResource("ShaderMaterial_hj563")
+fit_margin = 0.0
+clear_margin = 0.0
+
+[node name="ColorRect2" type="ColorRect" parent="Rain"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 1, 0)
+
+[node name="Rainblock" type="Polygon2D" parent="Rain"]
+position = Vector2(180, 534)
+polygon = PackedVector2Array(-150, -200, 150, -200, 150, 100, -150, 100)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -454,6 +539,12 @@ z_index = 1
 position = Vector2(180, 534)
 
 [node name="Pig" parent="ProxyPig" instance=ExtResource("2_tr4fh")]
+
+[node name="UmbrellaBottom" type="Sprite2D" parent="ProxyPig"]
+position = Vector2(0, -48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_rkdft")
+offset = Vector2(0, -450)
 
 [node name="Button" type="Button" parent="."]
 offset_right = 1152.0
