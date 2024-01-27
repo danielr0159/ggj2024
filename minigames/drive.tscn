@@ -1,8 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7c1v6p62jbwp"]
+[gd_scene load_steps=23 format=3 uid="uid://c7c1v6p62jbwp"]
 
 [ext_resource type="Script" path="res://scripts/drive.gd" id="1_dynet"]
+[ext_resource type="Texture2D" uid="uid://bw83a274518bf" path="res://assets/images/drive/bg_road.png" id="2_2t65f"]
 [ext_resource type="PackedScene" uid="uid://ccx8n7nigis8c" path="res://assets/rigs/pig.tscn" id="2_5jswt"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_dchgk"]
+[ext_resource type="Shader" path="res://shaders/road.gdshader" id="3_c08wp"]
+[ext_resource type="Texture2D" uid="uid://cj8e0ehdfy1px" path="res://assets/images/drive/road.png" id="4_22ltn"]
+[ext_resource type="Texture2D" uid="uid://daaetn1bm4rux" path="res://assets/images/drive/tunnel.png" id="5_btyem"]
+[ext_resource type="Texture2D" uid="uid://csrruehwfnxpj" path="res://assets/images/drive/car_red.png" id="7_1f5es"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m6ex4"]
+shader = ExtResource("3_c08wp")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hq578"]
 size = Vector2(180, 40)
@@ -500,6 +508,43 @@ _data = {
 [node name="Drive" type="Node2D"]
 script = ExtResource("1_dynet")
 
+[node name="BgRoad" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_2t65f")
+
+[node name="Road3" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_m6ex4")
+position = Vector2(576, 346)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_22ltn")
+
+[node name="Tunnel3" type="Sprite2D" parent="."]
+position = Vector2(70, 310)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_btyem")
+
+[node name="Tunnel4" type="Sprite2D" parent="."]
+position = Vector2(1082, 310)
+rotation = -3.14159
+scale = Vector2(0.6, -0.6)
+texture = ExtResource("5_btyem")
+
+[node name="Road" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_m6ex4")
+position = Vector2(576, 446)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_22ltn")
+
+[node name="Road2" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_m6ex4")
+position = Vector2(576, 546)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_22ltn")
+
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -512,23 +557,10 @@ position = Vector2(180, 430)
 
 [node name="Car" type="Node2D" parent="YSort/Pig/Crashable"]
 
-[node name="ColorRect" type="ColorRect" parent="YSort/Pig/Crashable/Car"]
-offset_left = -100.0
-offset_top = -50.0
-offset_right = 80.0
-offset_bottom = 20.0
-
-[node name="ColorRect2" type="ColorRect" parent="YSort/Pig/Crashable/Car"]
-offset_left = 20.0
-offset_right = 60.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="YSort/Pig/Crashable/Car"]
-offset_left = -80.0
-offset_right = -40.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
+[node name="CarRed" type="Sprite2D" parent="YSort/Pig/Crashable/Car"]
+position = Vector2(-7, -18)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_1f5es")
 
 [node name="Collision" type="Area2D" parent="YSort/Pig"]
 
@@ -562,23 +594,11 @@ offset_bottom = 648.0
 visible = false
 position = Vector2(180, 430)
 
-[node name="ColorRect" type="ColorRect" parent="Filter/ProxyCar"]
-offset_left = -100.0
-offset_top = -50.0
-offset_right = 80.0
-offset_bottom = 20.0
-
-[node name="ColorRect2" type="ColorRect" parent="Filter/ProxyCar"]
-offset_left = 20.0
-offset_right = 60.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Filter/ProxyCar"]
-offset_left = -80.0
-offset_right = -40.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
+[node name="CarRed2" type="Sprite2D" parent="Filter/ProxyCar"]
+position = Vector2(-7, -18)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_1f5es")
 
 [node name="Button" type="Button" parent="."]
 offset_right = 1152.0
