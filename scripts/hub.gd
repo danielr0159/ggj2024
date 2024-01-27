@@ -29,7 +29,10 @@ func _restart() -> void:
 	var screen : StartScreen = preload("res://screens/start.tscn").instantiate()
 	add_child(screen)
 	await screen.start
-	_run_minigame()
+	var minigame : Minigame = preload("res://minigames/carousel.tscn").instantiate()
+	minigame.lose.connect(self._deadscreen)
+	minigame.next.connect(self._run_minigame)
+	add_child(minigame)
 
 func _next() -> void:
 	difficulty += 1
