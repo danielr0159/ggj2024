@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://4kdbetd3v6k"]
+[gd_scene load_steps=23 format=3 uid="uid://4kdbetd3v6k"]
 
 [ext_resource type="Script" path="res://scripts/duel.gd" id="1_pmpt0"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_3hsuf"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://f31b4hg712jc" path="res://assets/rigs/cat.tscn" id="3_f0asi"]
 [ext_resource type="Texture2D" uid="uid://v3o1q3nkheo" path="res://assets/images/duel/Trash.png" id="3_k1y4p"]
 [ext_resource type="Texture2D" uid="uid://yfafyflfynrk" path="res://assets/images/duel/notella.png" id="4_pw7y8"]
-[ext_resource type="Texture2D" uid="uid://djjc6tufkw0s8" path="res://assets/images/cat/Hand_back.png" id="6_5u80u"]
-[ext_resource type="Texture2D" uid="uid://dgtwuk7lnhlvn" path="res://assets/images/pig/Hand_front.png" id="7_bp6eo"]
+[ext_resource type="Texture2D" uid="uid://cjnfubs3wwsfq" path="res://assets/images/duel/WAIT.png" id="9_ca748"]
+[ext_resource type="Texture2D" uid="uid://fac04wwmewoq" path="res://assets/images/duel/NOW.png" id="10_n60rn"]
+[ext_resource type="SpriteFrames" uid="uid://cp6bh3y8ai5n6" path="res://assets/images/explosion/sprites.tres" id="10_x7jty"]
 
 [sub_resource type="Animation" id="Animation_61q0i"]
 resource_name = "RESET"
@@ -118,7 +119,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.2, 0.2)]
+"values": [Vector2(0.5, 0.5)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -132,6 +133,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(497, 535)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Explosion:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Explosion:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_lnxa5"]
 resource_name = "duel"
@@ -143,10 +168,10 @@ tracks/0/path = NodePath("Pig:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(0.3, 1),
+"times": PackedFloat32Array(0.9, 1, 10),
+"transitions": PackedFloat32Array(1, 0.3, 1),
 "update": 0,
-"values": [180.0, 378.0]
+"values": [180.0, 180.0, 378.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -155,10 +180,10 @@ tracks/1/path = NodePath("Pig:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(0.1, 1),
+"times": PackedFloat32Array(0.9, 1, 10),
+"transitions": PackedFloat32Array(1, 0.1, 1),
 "update": 0,
-"values": [580.0, 500.0]
+"values": [580.0, 580.0, 500.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -167,10 +192,10 @@ tracks/2/path = NodePath("Cat:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(0.3, 1),
+"times": PackedFloat32Array(0.9, 1, 10),
+"transitions": PackedFloat32Array(1, 0.3, 1),
 "update": 0,
-"values": [800.0, 594.0]
+"values": [800.0, 800.0, 594.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -179,10 +204,10 @@ tracks/3/path = NodePath("Cat:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(0.1, 1),
+"times": PackedFloat32Array(0.9, 1, 10),
+"transitions": PackedFloat32Array(1, 0.1, 1),
 "update": 0,
-"values": [580.0, 500.0]
+"values": [580.0, 580.0, 500.0]
 }
 
 [sub_resource type="Animation" id="Animation_ipj1v"]
@@ -373,6 +398,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_r1jpy"]
 resource_name = "lose"
+length = 1.50001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -421,10 +447,34 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Explosion:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Explosion:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 5]
+}
 
 [sub_resource type="Animation" id="Animation_l2a5f"]
 resource_name = "win"
-length = 2.00001
+length = 3.00001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -480,10 +530,10 @@ tracks/4/path = NodePath("Notella:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1, 1.7),
+"times": PackedFloat32Array(0, 2, 2.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(0.2, 0.2), Vector2(1e-05, 1e-05)]
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.5), Vector2(1e-05, 1e-05)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -492,14 +542,39 @@ tracks/5/path = NodePath("Notella:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1, 1.7),
+"times": PackedFloat32Array(0, 2, 2.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(497, 535), Vector2(497, 535), Vector2(472, 454)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Explosion:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Explosion:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 5]
+}
 
 [sub_resource type="Animation" id="Animation_3fq3s"]
 resource_name = "draw"
+length = 1.50001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -555,10 +630,34 @@ tracks/4/path = NodePath("Notella:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Explosion:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Explosion:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1jacl"]
@@ -577,107 +676,70 @@ resource_name = "RESET"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Indicator:visible")
+tracks/0/path = NodePath("Now:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(576, -80)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Indicator/NotYet:visible")
+tracks/1/path = NodePath("Wait:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Indicator/NotYet:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(576, -80)]
 }
 
 [sub_resource type="Animation" id="Animation_dq5oh"]
 resource_name = "doit"
-length = 0.20001
+length = 0.50001
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Indicator:visible")
+tracks/0/path = NodePath("Wait:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 99), Vector2(576, -80), Vector2(576, -80)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Indicator/NotYet:visible")
+tracks/1/path = NodePath("Now:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(576, -80), Vector2(576, 99), Vector2(576, 99)]
 }
 
 [sub_resource type="Animation" id="Animation_jefqd"]
 resource_name = "notyet"
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Indicator:visible")
+tracks/0/path = NodePath("Wait:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Indicator/NotYet:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Indicator/NotYet:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+"values": [Vector2(576, -80), Vector2(576, 99)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wxi30"]
@@ -698,8 +760,8 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_x00me")
 
 [node name="Trash" type="Sprite2D" parent="."]
-position = Vector2(510, 480)
-scale = Vector2(0.3, 0.3)
+position = Vector2(507, 426)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_k1y4p")
 
 [node name="Pig" type="Node2D" parent="."]
@@ -707,51 +769,27 @@ position = Vector2(180, 580)
 
 [node name="Pig" parent="Pig" instance=ExtResource("2_idkwh")]
 
+[node name="Notella" type="Sprite2D" parent="."]
+position = Vector2(497, 535)
+rotation = -0.424115
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_pw7y8")
+
 [node name="Cat" type="Node2D" parent="."]
 position = Vector2(800, 580)
 
 [node name="Cat" parent="Cat" instance=ExtResource("3_f0asi")]
 scale = Vector2(-1, 1)
 
-[node name="Notella" type="Sprite2D" parent="."]
-position = Vector2(497, 535)
-rotation = -0.424115
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_pw7y8")
+[node name="Wait" type="Sprite2D" parent="."]
+position = Vector2(576, -80)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_ca748")
 
-[node name="Indicator" type="Node2D" parent="."]
-visible = false
-position = Vector2(504, 305)
-
-[node name="HandBack" type="Sprite2D" parent="Indicator"]
-position = Vector2(8, -7)
-rotation = 0.846485
-scale = Vector2(-0.701315, 0.701315)
-texture = ExtResource("6_5u80u")
-
-[node name="HandFront" type="Sprite2D" parent="Indicator"]
-position = Vector2(0.999998, 5)
-rotation = -2.30784
-scale = Vector2(0.39667, 0.39667)
-texture = ExtResource("7_bp6eo")
-
-[node name="NotYet" type="Node2D" parent="Indicator"]
-
-[node name="ColorRect" type="ColorRect" parent="Indicator/NotYet"]
-offset_left = 28.7107
-offset_top = -42.0
-offset_right = 48.7107
-offset_bottom = 58.0
-rotation = 0.785398
-color = Color(1, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Indicator/NotYet"]
-offset_left = -41.2893
-offset_top = -27.0
-offset_right = -21.2893
-offset_bottom = 73.0
-rotation = -0.785398
-color = Color(1, 0, 0, 1)
+[node name="Now" type="Sprite2D" parent="."]
+position = Vector2(576, -80)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_n60rn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -764,6 +802,12 @@ libraries = {
 }
 
 [node name="Frame" parent="." instance=ExtResource("2_3hsuf")]
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(545, 513)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("10_x7jty")
 
 [node name="ProxyPig" type="Node2D" parent="."]
 visible = false

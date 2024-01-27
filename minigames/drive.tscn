@@ -558,7 +558,7 @@ position = Vector2(180, 430)
 [node name="Car" type="Node2D" parent="YSort/Pig/Crashable"]
 
 [node name="CarRed" type="Sprite2D" parent="YSort/Pig/Crashable/Car"]
-position = Vector2(-7, -18)
+position = Vector2(10, -18)
 scale = Vector2(-1, 1)
 texture = ExtResource("7_1f5es")
 
@@ -595,7 +595,7 @@ visible = false
 position = Vector2(180, 430)
 
 [node name="CarRed2" type="Sprite2D" parent="Filter/ProxyCar"]
-position = Vector2(-7, -18)
+position = Vector2(10, -18)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("7_1f5es")
