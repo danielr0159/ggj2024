@@ -71,12 +71,12 @@ func do_win() -> void:
 	await anim.animation_finished
 	queue_free()
 
-func do_lose() -> void:
+func do_lose(animation: String = "lose") -> void:
 	if state != 1:
 		return
 	state = 0
 	minigame_stop()
-	anim.play("lose")
+	anim.play(animation)
 	await anim.animation_finished
 	lose.emit()
 	queue_free()

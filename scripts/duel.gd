@@ -26,7 +26,7 @@ func minigame_stop() -> void:
 
 func minigame_process(delta: float) -> void:
 	if resolution == 1:
-		do_lose()
+		do_lose("draw")
 		return
 	if resolution == 2:
 		do_win()
