@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c7c1v6p62jbwp"]
+[gd_scene load_steps=24 format=3 uid="uid://c7c1v6p62jbwp"]
 
 [ext_resource type="Script" path="res://scripts/drive.gd" id="1_dynet"]
 [ext_resource type="Texture2D" uid="uid://bw83a274518bf" path="res://assets/images/drive/bg_road.png" id="2_2t65f"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cj8e0ehdfy1px" path="res://assets/images/drive/road.png" id="4_22ltn"]
 [ext_resource type="Texture2D" uid="uid://daaetn1bm4rux" path="res://assets/images/drive/tunnel.png" id="5_btyem"]
 [ext_resource type="Texture2D" uid="uid://csrruehwfnxpj" path="res://assets/images/drive/car_red.png" id="7_1f5es"]
+[ext_resource type="AudioStream" uid="uid://w7pvnf3pjbpu" path="res://assets/sounds/RoadMusic+Ambient.wav" id="9_y3w24"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m6ex4"]
 shader = ExtResource("3_c08wp")
@@ -610,3 +611,7 @@ callback_mode_process = 0
 libraries = {
 "": SubResource("AnimationLibrary_36ifc")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_y3w24")
+autoplay = true

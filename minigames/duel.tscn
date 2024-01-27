@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://4kdbetd3v6k"]
+[gd_scene load_steps=24 format=3 uid="uid://4kdbetd3v6k"]
 
 [ext_resource type="Script" path="res://scripts/duel.gd" id="1_pmpt0"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_3hsuf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cjnfubs3wwsfq" path="res://assets/images/duel/WAIT.png" id="9_ca748"]
 [ext_resource type="Texture2D" uid="uid://fac04wwmewoq" path="res://assets/images/duel/NOW.png" id="10_n60rn"]
 [ext_resource type="SpriteFrames" uid="uid://cp6bh3y8ai5n6" path="res://assets/images/explosion/sprites.tres" id="10_x7jty"]
+[ext_resource type="AudioStream" uid="uid://bsdq823xy7n3g" path="res://assets/sounds/TrashMusic+Ambient.wav" id="11_4um42"]
 
 [sub_resource type="Animation" id="Animation_61q0i"]
 resource_name = "RESET"
@@ -820,3 +821,7 @@ position = Vector2(180, 400)
 offset_right = 1152.0
 offset_bottom = 648.0
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4um42")
+autoplay = true

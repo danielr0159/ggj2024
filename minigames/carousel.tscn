@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqe8v4t8stajj"]
+[gd_scene load_steps=21 format=3 uid="uid://dqe8v4t8stajj"]
 
 [ext_resource type="Script" path="res://scripts/carousel.gd" id="1_t51n4"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_4ooxi"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bf704l1e2d6st" path="res://assets/images/carousel/pig_half_bottom.png" id="5_qn8m4"]
 [ext_resource type="Texture2D" uid="uid://dhb38f837se32" path="res://assets/images/carousel/cat_half_bpttom.png" id="6_k3vun"]
 [ext_resource type="SpriteFrames" uid="uid://cp6bh3y8ai5n6" path="res://assets/images/explosion/sprites.tres" id="10_ubcjl"]
+[ext_resource type="AudioStream" uid="uid://b53q3m307ggqw" path="res://assets/sounds/DeliMusic+Ambient.wav" id="11_2s5l7"]
 
 [sub_resource type="Animation" id="Animation_x5rlr"]
 length = 0.001
@@ -734,3 +735,7 @@ sprite_frames = ExtResource("10_ubcjl")
 offset_right = 1152.0
 offset_bottom = 648.0
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2s5l7")
+autoplay = true

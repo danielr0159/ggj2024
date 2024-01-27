@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://d28fdawy5vh64"]
+[gd_scene load_steps=13 format=3 uid="uid://d28fdawy5vh64"]
 
 [ext_resource type="Script" path="res://scripts/parachute.gd" id="1_2pp46"]
 [ext_resource type="PackedScene" uid="uid://dnff1h6m33ixc" path="res://entities/parachute_cart.tscn" id="2_88yh2"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_a3m0q"]
 [ext_resource type="PackedScene" uid="uid://ccx8n7nigis8c" path="res://assets/rigs/pig.tscn" id="3_dhyg5"]
+[ext_resource type="AudioStream" uid="uid://c0wub8uoojh6t" path="res://assets/sounds/ParachuteMusic+Ambient .wav" id="5_p34q8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mt8h"]
 size = Vector2(100, 100)
@@ -652,3 +653,7 @@ position = Vector2(180, 380)
 offset_right = 1152.0
 offset_bottom = 648.0
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_p34q8")
+autoplay = true
