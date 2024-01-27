@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/duel.gd" id="1_pmpt0"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="2_3hsuf"]
 [ext_resource type="PackedScene" uid="uid://ccx8n7nigis8c" path="res://assets/rigs/pig.tscn" id="2_idkwh"]
+[ext_resource type="PackedScene" uid="uid://f31b4hg712jc" path="res://assets/rigs/cat.tscn" id="3_f0asi"]
 
 [sub_resource type="Animation" id="Animation_61q0i"]
 resource_name = "RESET"
@@ -540,11 +541,8 @@ position = Vector2(180, 400)
 [node name="Cat" type="Node2D" parent="."]
 position = Vector2(800, 380)
 
-[node name="ColorRect" type="ColorRect" parent="Cat"]
-offset_left = -40.0
-offset_top = -60.0
-offset_right = 40.0
-color = Color(0.219608, 0.211765, 0.478431, 1)
+[node name="Cat" parent="Cat" instance=ExtResource("3_f0asi")]
+scale = Vector2(-1, 1)
 
 [node name="Indicator" type="Node2D" parent="."]
 visible = false

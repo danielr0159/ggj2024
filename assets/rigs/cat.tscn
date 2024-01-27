@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://f31b4hg712jc"]
+
+[ext_resource type="Texture2D" uid="uid://djjc6tufkw0s8" path="res://assets/images/cat/Hand_back.png" id="1_5wemv"]
+[ext_resource type="Texture2D" uid="uid://bswcts2jabj4b" path="res://assets/images/cat/Leg.png" id="2_wlyjv"]
+[ext_resource type="Texture2D" uid="uid://c0dmnhc7vqly6" path="res://assets/images/cat/Body.png" id="3_atxhm"]
+[ext_resource type="Texture2D" uid="uid://m2muchv72yun" path="res://assets/images/cat/Hand_front.png" id="4_v8mje"]
+[ext_resource type="Texture2D" uid="uid://cei716frxsec" path="res://assets/images/cat/Head.png" id="5_owel5"]
+
+[node name="Cat" type="Node2D"]
+
+[node name="Root" type="Node2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="Rear Hand" type="Node2D" parent="Root"]
+position = Vector2(44, -258)
+
+[node name="HandBack" type="Sprite2D" parent="Root/Rear Hand"]
+position = Vector2(58, 27)
+texture = ExtResource("1_5wemv")
+
+[node name="Rear Leg" type="Node2D" parent="Root"]
+position = Vector2(-32, -154)
+rotation = -0.603884
+
+[node name="Leg" type="Sprite2D" parent="Root/Rear Leg"]
+position = Vector2(0, 100)
+rotation = 1.5708
+texture = ExtResource("2_wlyjv")
+
+[node name="Front Leg" type="Node2D" parent="Root"]
+position = Vector2(-60, -154)
+rotation = 0.618369
+
+[node name="Leg" type="Sprite2D" parent="Root/Front Leg"]
+position = Vector2(-13, 80)
+rotation = 1.5708
+texture = ExtResource("2_wlyjv")
+
+[node name="Body" type="Sprite2D" parent="Root"]
+position = Vector2(-101.5, -254.5)
+texture = ExtResource("3_atxhm")
+
+[node name="Head" type="Node2D" parent="Root"]
+position = Vector2(24, -307)
+
+[node name="Head" type="Sprite2D" parent="Root/Head"]
+position = Vector2(10, -100)
+texture = ExtResource("5_owel5")
+
+[node name="Front Hand" type="Node2D" parent="Root"]
+position = Vector2(-18, -275)
+scale = Vector2(1, 1)
+
+[node name="HandFront" type="Sprite2D" parent="Root/Front Hand"]
+position = Vector2(-48, 37)
+texture = ExtResource("4_v8mje")

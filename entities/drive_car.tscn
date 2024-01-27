@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://csbjvosbm20sc"]
+[gd_scene load_steps=7 format=3 uid="uid://csbjvosbm20sc"]
 
 [ext_resource type="Script" path="res://scripts/drive_car.gd" id="1_w6ea2"]
+[ext_resource type="PackedScene" uid="uid://f31b4hg712jc" path="res://assets/rigs/cat.tscn" id="2_rjrh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxufd"]
 size = Vector2(180, 40)
@@ -87,11 +88,7 @@ script = ExtResource("1_w6ea2")
 [node name="Cat" type="Node2D" parent="Crashable"]
 position = Vector2(0, -23)
 
-[node name="ColorRect" type="ColorRect" parent="Crashable/Cat"]
-offset_left = -40.0
-offset_top = -60.0
-offset_right = 40.0
-color = Color(0.219608, 0.211765, 0.478431, 1)
+[node name="Cat" parent="Crashable/Cat" instance=ExtResource("2_rjrh7")]
 
 [node name="Car" type="Node2D" parent="Crashable"]
 
