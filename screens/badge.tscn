@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dchaccia8b5lg"]
+[gd_scene load_steps=9 format=3 uid="uid://dchaccia8b5lg"]
 
 [ext_resource type="Script" path="res://scripts/badge.gd" id="1_hc02a"]
+[ext_resource type="Texture2D" uid="uid://b342ekeo07dyd" path="res://assets/images/badge/upgrade_1.png" id="2_p6eih"]
 [ext_resource type="PackedScene" uid="uid://ccx8n7nigis8c" path="res://assets/rigs/pig.tscn" id="2_pnyvw"]
 [ext_resource type="PackedScene" uid="uid://c6mx0jvv7chl1" path="res://common/frame.tscn" id="3_s2wpq"]
 
@@ -180,6 +181,11 @@ _data = {
 
 [node name="Badge" type="Node2D"]
 script = ExtResource("1_hc02a")
+
+[node name="Upgrade1" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_p6eih")
 
 [node name="Frame" parent="." instance=ExtResource("3_s2wpq")]
 

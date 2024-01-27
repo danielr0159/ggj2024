@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyhxomtxt7y7e"]
+[gd_scene load_steps=6 format=3 uid="uid://cyhxomtxt7y7e"]
 
 [ext_resource type="Script" path="res://scripts/dead.gd" id="1_e5k68"]
+[ext_resource type="Texture2D" uid="uid://d3ab1xb6gjtby" path="res://assets/images/dead/you_loose.png" id="2_ph6qx"]
 
 [sub_resource type="Animation" id="Animation_18uxs"]
 resource_name = "RESET"
@@ -17,6 +18,11 @@ _data = {
 
 [node name="Dead" type="Node2D"]
 script = ExtResource("1_e5k68")
+
+[node name="YouLoose" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ph6qx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
